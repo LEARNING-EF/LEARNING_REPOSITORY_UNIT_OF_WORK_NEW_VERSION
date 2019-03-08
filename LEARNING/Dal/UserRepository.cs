@@ -31,20 +31,20 @@ namespace Dal
 			//	.ToList()
 			//	;
 
-			var result =
-				Get()
-				.Where(current => current.IsActive)
-				.OrderBy(current => current.Username)
-				.ToList()
-				;
-
 			//var result =
 			//	Get()
 			//	.Where(current => current.IsActive)
-			//	.Where(current => current.IsDeleted == false)
 			//	.OrderBy(current => current.Username)
 			//	.ToList()
 			//	;
+
+			var result =
+				Get()
+				.Where(current => current.IsActive)
+				.Where(current => current.IsDeleted == false)
+				.OrderBy(current => current.Username)
+				.ToList()
+				;
 
 			return result;
 		}

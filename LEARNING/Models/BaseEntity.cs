@@ -14,5 +14,13 @@
 		// **********
 		public bool IsActive { get; set; }
 		// **********
+
+		// **********
+		public bool IsDeleted { get; set; }
+		// **********
+
+		// **********
+		public System.DateTime? DeleteDateTime { get; set; }
+		// **********
 	}
 }

@@ -89,36 +89,41 @@ namespace Dal
 				throw new System.ArgumentNullException("entity");
 			}
 
-			// **************************************************
-			// Just For Debug!
-			// **************************************************
-			System.Data.Entity.EntityState entityState = DatabaseContext.Entry(entity).State;
-			// **************************************************
-			// /Just For Debug!
-			// **************************************************
+			entity.IsDeleted = true;
+			entity.DeleteDateTime = System.DateTime.Now;
 
-			if (entityState == System.Data.Entity.EntityState.Detached)
-			{
-				DbSet.Attach(entity);
-			}
+			Update(entity);
 
-			// **************************************************
-			// Just For Debug!
-			// **************************************************
-			entityState = DatabaseContext.Entry(entity).State;
-			// **************************************************
-			// /Just For Debug!
-			// **************************************************
+			//// **************************************************
+			//// Just For Debug!
+			//// **************************************************
+			//System.Data.Entity.EntityState entityState = DatabaseContext.Entry(entity).State;
+			//// **************************************************
+			//// /Just For Debug!
+			//// **************************************************
 
-			DbSet.Remove(entity);
+			//if (entityState == System.Data.Entity.EntityState.Detached)
+			//{
+			//	DbSet.Attach(entity);
+			//}
 
-			// **************************************************
-			// Just For Debug!
-			// **************************************************
-			entityState = DatabaseContext.Entry(entity).State;
-			// **************************************************
-			// /Just For Debug!
-			// **************************************************
+			//// **************************************************
+			//// Just For Debug!
+			//// **************************************************
+			//entityState = DatabaseContext.Entry(entity).State;
+			//// **************************************************
+			//// /Just For Debug!
+			//// **************************************************
+
+			//DbSet.Remove(entity);
+
+			//// **************************************************
+			//// Just For Debug!
+			//// **************************************************
+			//entityState = DatabaseContext.Entry(entity).State;
+			//// **************************************************
+			//// /Just For Debug!
+			//// **************************************************
 		}
 
 		public virtual T GetById(System.Guid id)
